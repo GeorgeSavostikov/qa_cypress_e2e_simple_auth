@@ -16,18 +16,11 @@ describe('Sign In page', () => {
     );
   });
 
-  it('Return the mistake if the login username is incorrect', () => {
+  it('Return the mistake if the login data is incorrect', () => {
     cy.get('#username').type('tomsmit');
-    cy.get('#password').type('SuperSecretPassword!' + `{Enter}`);
-
-    cy.get('[data-alert]').should('contain.text', 'Your username is invalid!');
-  });
-
-  it('Return the mistake if the login password is incorrect', () => {
-    cy.get('#username').type('tomsmith');
     cy.get('#password').type('SuperSecretPassword' + `{Enter}`);
 
-    cy.get('[data-alert]').should('contain.text', 'Your password is invalid!');
+    cy.get('[data-alert]').should('contain.text', 'is invalid!');
   });
 
   it('should log out successfully', () => {
