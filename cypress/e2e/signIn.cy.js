@@ -21,6 +21,11 @@ describe('Sign In page', () => {
     cy.get('#password').type('SuperSecretPassword' + `{Enter}`);
 
     cy.get('[data-alert]').should('contain.text', 'is invalid!');
+
+    cy.get('#username').type('tomsmith');
+    cy.get('#password').type('SuperSecretPassword' + `{Enter}`);
+
+    cy.get('[data-alert]').should('contain.text', 'is invalid!');
   });
 
   it('should log out successfully', () => {
